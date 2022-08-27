@@ -1,0 +1,15 @@
+C:\Users\matias\Desktop\Facultad\Metodologia 1\tp1\bin\Debug\net6.0\tp1.exe
+C:\Users\matias\Desktop\Facultad\Metodologia 1\tp1\bin\Debug\net6.0\tp1.deps.json
+C:\Users\matias\Desktop\Facultad\Metodologia 1\tp1\bin\Debug\net6.0\tp1.runtimeconfig.json
+C:\Users\matias\Desktop\Facultad\Metodologia 1\tp1\bin\Debug\net6.0\tp1.dll
+C:\Users\matias\Desktop\Facultad\Metodologia 1\tp1\bin\Debug\net6.0\tp1.pdb
+C:\Users\matias\Desktop\Facultad\Metodologia 1\tp1\obj\Debug\net6.0\tp1.csproj.AssemblyReference.cache
+C:\Users\matias\Desktop\Facultad\Metodologia 1\tp1\obj\Debug\net6.0\tp1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\matias\Desktop\Facultad\Metodologia 1\tp1\obj\Debug\net6.0\tp1.AssemblyInfoInputs.cache
+C:\Users\matias\Desktop\Facultad\Metodologia 1\tp1\obj\Debug\net6.0\tp1.AssemblyInfo.cs
+C:\Users\matias\Desktop\Facultad\Metodologia 1\tp1\obj\Debug\net6.0\tp1.csproj.CoreCompileInputs.cache
+C:\Users\matias\Desktop\Facultad\Metodologia 1\tp1\obj\Debug\net6.0\tp1.dll
+C:\Users\matias\Desktop\Facultad\Metodologia 1\tp1\obj\Debug\net6.0\refint\tp1.dll
+C:\Users\matias\Desktop\Facultad\Metodologia 1\tp1\obj\Debug\net6.0\tp1.pdb
+C:\Users\matias\Desktop\Facultad\Metodologia 1\tp1\obj\Debug\net6.0\tp1.genruntimeconfig.cache
+C:\Users\matias\Desktop\Facultad\Metodologia 1\tp1\obj\Debug\net6.0\ref\tp1.dll
