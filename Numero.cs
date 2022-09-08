@@ -21,19 +21,43 @@ namespace tp1
         public bool esMayor(IComparable comparable)
         {
             //Casteo de la interfaz con la clase, sino da error
-            Numero numero = (Numero) comparable;
-            return true;
+            Numero numero = (Numero)comparable;
+            if (numero.getValor() > this.getValor())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
         public bool esMenor(IComparable comparable)
         {
-            Numero numero = (Numero) comparable;
-            return true;
+            //Casteo de la interfaz con la clase, sino da error
+            Numero numero = (Numero)comparable;
+            if (numero.getValor() < this.getValor())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool sosIgual(IComparable comparable)
         {
-            Numero numero = (Numero) comparable;
-            return true;
+            //Casteo de la interfaz con la clase, sino da error
+            Numero numero = (Numero)comparable;
+            if (numero.getValor() == this.getValor())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
