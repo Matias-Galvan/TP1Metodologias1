@@ -59,5 +59,10 @@ namespace tp1
                 return false;
             }
         }
+
+        public override string ToString()
+        {
+            return this.getValor().ToString();
+        }
     }
 }

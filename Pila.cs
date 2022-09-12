@@ -1,60 +1,78 @@
-// using System.Collections.Generic;
-// namespace tp1
-// {
-//     public class Pila<T> : IColeccionable
-//     {
-//         private IColeccionable coleccionable;
+using System.Collections.Generic;
+namespace tp1
+{
+    public class Pila<T> : IColeccionable
+    {
+        private IColeccionable coleccionable;
 
-//         List<IComparable> comparables = new  List<IComparable>();
-//         public Queue<T> q1 = new Queue<T>();
-//         public Queue<T> q2 = new Queue<T>();
+        private List<IComparable> comparables;
 
-//         public void apilar(T elemento){
-//            q2.Enqueue(elemento);
+        public Pila()
+        {
+            comparables = new List<IComparable>();
+        }
 
-//            while(q1.Count > 0){
-//             q2.Enqueue(q1.Peek());
-//             q1.Dequeue();
-//            }
-//            Queue<T> q3 = q1;
-//            q1 = q2;
-//            q2 = q3;
-//         }
+        private void apilar(IComparable elemento)
+        {
+            comparables.Add(elemento);
+        }
+        private IComparable desapilar()
+        {
+            IComparable elemento = comparables[comparables.Count - 1];
+            comparables.RemoveAt(comparables.Count - 1);
+            return elemento;
+        }
+        public int tamaño()
+        {
+            return comparables.Count;
+        }
 
-//         public void desapilar(){
-//             if(q1.Count == 0)
-//             return;
-//             q1.Dequeue();
-//         }
+        public int cuantos()
+        {
+            return comparables.Count;
+        }
 
-//         public T tope(){
-//             if (q1.Count == 0){
+        public IComparable minimo()
+        {
+            IComparable aux = comparables[0];
+            for (int i = 0; i < comparables.Count; i++)
+            {
+                if (comparables[i].esMenor(aux))
+                {
+                    aux = comparables[i];
+                }
+            }
+            return aux;
+        }
+        public IComparable maximo()
+        {
+            IComparable aux = comparables[0];
+            for (int i = 0; i < comparables.Count; i++)
+            {
+                if (comparables[i].esMayor(aux))
+                {
+                    aux = comparables[i];
+                }
+            }
+            return aux;
+        }
 
-//             }
-//              return (T)q1.Peek();
-//         }
+        public void agregar(IComparable comparable)
+        {
+            apilar(comparable);
+        }
 
-//         public int tamaño(){
-//             return q1.Count;
-//         }
-
-//         public int cuantos(){
-//             return q1.Count;
-//         }
-
-//         public IComparable minimo(){
-            
-//         }
-//         public IComparable maximo(){
-
-//         }
-
-//         public void agregar(IComparable comparable){
-           
-//         }
-
-//         public bool contiene(IComparable comparable){
-//             return true;
-//         }
-//     }
-// }
+        public bool contiene(IComparable comparable)
+        {
+            bool aux =false;
+            for (int i = 0; i < comparables.Count; i++)
+            {
+                if (comparables[i].sosIgual(comparable))
+                {
+                    aux =true;
+                }
+            }
+            return aux;
+        }
+    }
+}
