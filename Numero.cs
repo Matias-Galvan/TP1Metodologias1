@@ -22,7 +22,7 @@ namespace tp1
         {
             //Casteo de la interfaz con la clase, sino da error
             Numero numero = (Numero)comparable;
-            if (numero.getValor() > this.getValor())
+            if (numero.getValor() < this.getValor())
             {
                 return true;
             }
@@ -36,7 +36,7 @@ namespace tp1
         {
             //Casteo de la interfaz con la clase, sino da error
             Numero numero = (Numero)comparable;
-            if (numero.getValor() < this.getValor())
+            if (numero.getValor() > this.getValor())
             {
                 return true;
             }
