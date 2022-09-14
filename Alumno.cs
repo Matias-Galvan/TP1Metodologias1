@@ -1,6 +1,6 @@
 namespace tp1
 {
-    public class Alumno : Persona, IComparable
+    public class Alumno : Persona
     {
         private Numero legajo;
         private Numero promedio;
@@ -22,7 +22,7 @@ namespace tp1
             return promedio;
         }
 
-        public bool esMayor(IComparable comparable)
+        public override bool esMayor(IComparable comparable)
         {
             Alumno legajoAlumno = (Alumno)comparable;
             if (this.getLegajo().getValor() > legajoAlumno.getLegajo().getValor())
@@ -34,7 +34,7 @@ namespace tp1
                 return false;
             }
         }
-        public bool esMenor(IComparable comparable)
+        public override bool esMenor(IComparable comparable)
         {
             Alumno legajoAlumno = (Alumno)comparable;
             if (this.getLegajo().getValor() < legajoAlumno.getLegajo().getValor())
@@ -46,7 +46,7 @@ namespace tp1
                 return false;
             }
         }
-        public bool sosIgual(IComparable comparable)
+        public override bool sosIgual(IComparable comparable)
         {
             Alumno legajoAlumno = (Alumno)comparable;
             if (this.getLegajo().getValor() == legajoAlumno.getLegajo().getValor())
