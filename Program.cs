@@ -76,27 +76,63 @@ namespace tp1 // Note: actual namespace depends on the project name.
         //         System.Console.WriteLine("El documento no está en la lista");
         //     }
         // }
+        // static public void informarAlumnos(IColeccionable personas)
+        // {
+        //     IComparable maximo = personas.maximo();
+        //     IComparable minimo = personas.minimo();
+        //     Random num = new Random();
+        //     System.Console.WriteLine("La estrategia seleccionada es {0}", ((Alumno)maximo).obtenerEstrategia());
+        //     System.Console.WriteLine("El legajo mas chico es {0}", ((Alumno)minimo).getLegajo());
+        //     System.Console.WriteLine("El legajo mas grande es {0}", ((Alumno)maximo).getLegajo());
+        //     System.Console.WriteLine("Ingrese un legajo para verificar si existe en la lista");
+        //     int legajo = int.Parse(Console.ReadLine());
+        //     Numero numeroLegajo = new Numero(legajo);
+        //     Numero promedio = new Numero(num.Next(0, 9));
+        //     IComparable persona1 = new Alumno("null", 0, numeroLegajo, promedio);
+        //     bool existe = personas.contiene(persona1);
+        //     if (existe)
+        //     {
+        //         System.Console.WriteLine("El legajo está en la lista");
+        //     }
+        //     else
+        //     {
+        //         System.Console.WriteLine("El legajo no está en la lista");
+        //     }
+        // }
+
+        //Ejercicio 2 TP2
         static public void informarAlumnos(IColeccionable personas)
         {
             IComparable maximo = personas.maximo();
             IComparable minimo = personas.minimo();
-            Random num = new Random();
             System.Console.WriteLine("El legajo mas chico es {0}", ((Alumno)minimo).getLegajo());
             System.Console.WriteLine("El legajo mas grande es {0}", ((Alumno)maximo).getLegajo());
-            System.Console.WriteLine("Ingrese un legajo para verificar si existe en la lista");
-            int legajo = int.Parse(Console.ReadLine());
-            Numero numeroLegajo = new Numero(legajo);
-            Numero promedio = new Numero(num.Next(0, 9));
-            IComparable persona1 = new Alumno("null", 0, numeroLegajo, promedio);
-            bool existe = personas.contiene(persona1);
-            if (existe)
+            Random num = new Random();
+            System.Console.WriteLine("La estrategia seleccionada es {0}", ((Alumno)maximo).obtenerEstrategia());
+            if (((Alumno)maximo).obtenerEstrategia() == typeof(tp1.tp2.compararAlumnoLegajo))
             {
-                System.Console.WriteLine("El legajo está en la lista");
+                System.Console.WriteLine("Ingrese un legajo para verificar si existe en la lista");
+                int legajo = int.Parse(Console.ReadLine());
+                Numero numeroLegajo = new Numero(legajo);
+                Numero promedio = new Numero(num.Next(0, 9));
+                IComparable persona1 = new Alumno("null", 0, numeroLegajo, promedio);
+                bool existe = personas.contiene(persona1);
+                if (existe)
+                {
+                    System.Console.WriteLine("El legajo está en la lista");
+                }
+                else
+                {
+                    System.Console.WriteLine("El legajo no está en la lista");
+                }
             }
             else
             {
-                System.Console.WriteLine("El legajo no está en la lista");
+                System.Console.WriteLine("Estrategia no implementada");
             }
+
+
+
         }
 
         //Ejercicio 11
@@ -134,6 +170,7 @@ namespace tp1 // Note: actual namespace depends on the project name.
 
                 IComparable comparable = new Alumno(nombreCompleto, numeroAleatorio.Next(30000000, 50000000), legajo, promedio);
                 coleccionAlumnos.agregar(comparable);
+
 
             }
         }
