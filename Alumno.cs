@@ -51,39 +51,15 @@ namespace tp1
 
         public override bool esMayor(IComparable comparable)
         {
-            Alumno legajoAlumno = (Alumno)comparable;
-            if (this.getLegajo().getValor() > legajoAlumno.getLegajo().getValor())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return estrategia.esMayor(this, comparable);
         }
         public override bool esMenor(IComparable comparable)
         {
-            Alumno legajoAlumno = (Alumno)comparable;
-            if (this.getLegajo().getValor() < legajoAlumno.getLegajo().getValor())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return estrategia.esMenor(this,comparable);
         }
         public override bool sosIgual(IComparable comparable)
         {
-            Alumno legajoAlumno = (Alumno)comparable;
-            if (this.getLegajo().getValor() == legajoAlumno.getLegajo().getValor())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return estrategia.sosIgual(this, comparable);
         }
 
 
