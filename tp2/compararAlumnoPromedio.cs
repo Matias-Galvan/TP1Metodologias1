@@ -1,6 +1,6 @@
 namespace tp1.tp2
 {
-    public class compararAlumnoPromedio: IStrategy
+    public class compararAlumnoPromedio : IStrategy
     {
         public bool sosIgual(IComparable actual, IComparable comparable)
         {
@@ -16,7 +16,7 @@ namespace tp1.tp2
         }
         public bool esMayor(IComparable actual, IComparable comparable)
         {
-            if ((((Alumno)actual).getLegajo()).getValor() < ((((Alumno)comparable).getLegajo())).getValor())
+            if (((((Alumno)comparable).getLegajo())).getValor() > (((Alumno)actual).getLegajo()).getValor())
             {
                 return true;
             }
@@ -27,7 +27,7 @@ namespace tp1.tp2
         }
         public bool esMenor(IComparable actual, IComparable comparable)
         {
-            if ((((Alumno)actual).getLegajo()).getValor() > ((((Alumno)comparable).getLegajo())).getValor())
+            if (((((Alumno)comparable).getLegajo())).getValor() < (((Alumno)actual).getLegajo()).getValor())
             {
                 return true;
             }

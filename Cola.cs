@@ -1,6 +1,6 @@
 namespace tp1
 {
-    public class Cola<T> : IColeccionable
+    public class Cola<T> : IColeccionable, tp1.tp2.Iterable
     {
         private List<IComparable> datos;
 
@@ -76,6 +76,13 @@ namespace tp1
 			}
 
 			return aux;
+		}
+
+		//Metodo iterador
+
+		public tp1.tp2.IteradorComparables crearIterador(){
+			tp1.tp2.IteradorComparables iterador = new tp1.tp2.iteradorPilaConjuntoCola(datos);
+			return iterador;
 		}
     }
 }

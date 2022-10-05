@@ -16,7 +16,7 @@ namespace tp1.tp2
         }
         public bool esMayor(IComparable actual, IComparable comparable)
         {
-            if (((Alumno)actual).getNombre().Length < (((Alumno)comparable).getNombre().Length))
+            if (((Alumno)actual).getNombre().Length > (((Alumno)comparable).getNombre().Length))
             {
                 return true;
             }
@@ -27,7 +27,7 @@ namespace tp1.tp2
         }
         public bool esMenor(IComparable actual, IComparable comparable)
         {
-            if (((Alumno)actual).getNombre().Length > (((Alumno)comparable).getNombre().Length))
+            if (((Alumno)actual).getNombre().Length < (((Alumno)comparable).getNombre().Length))
             {
                 return true;
             }

@@ -11,7 +11,7 @@ namespace tp1
         {
             this.legajo = new Numero(legajo.getValor());
             this.promedio = new Numero(promedio.getValor());
-            estrategia = new tp1.tp2.compararAlumnoLegajo(); //Para acceder a la subcarpeta se coloca el namespace correspondiente
+            //estrategia = new tp1.tp2.compararAlumnoLegajo(); //Para acceder a la subcarpeta se coloca el namespace correspondiente
         }
 
         public Type obtenerEstrategia()
@@ -55,11 +55,16 @@ namespace tp1
         }
         public override bool esMenor(IComparable comparable)
         {
-            return estrategia.esMenor(this,comparable);
+            return estrategia.esMenor(this, comparable);
         }
         public override bool sosIgual(IComparable comparable)
         {
             return estrategia.sosIgual(this, comparable);
+        }
+
+        public override string ToString()
+        {
+            return "Nombre: " + this.getNombre() + " DNI: " + this.getDNI() + " Legajo: " + this.getLegajo() + " Promedio: " + this.getPromedio();
         }
 
 

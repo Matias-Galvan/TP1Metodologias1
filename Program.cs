@@ -19,7 +19,8 @@ namespace tp1 // Note: actual namespace depends on the project name.
             // }
             // llenar(pila);
             // informar(pila);
-            main();
+            //main();
+            main2();
 
 
         }
@@ -101,36 +102,66 @@ namespace tp1 // Note: actual namespace depends on the project name.
         // }
 
         //Ejercicio 2 TP2
+        // static public void informarAlumnos(IColeccionable personas)
+        // {
+        //     IComparable maximo = personas.maximo();
+        //     IComparable minimo = personas.minimo();
+        //     System.Console.WriteLine("El legajo mas chico es {0}", ((Alumno)minimo).getLegajo());
+        //     System.Console.WriteLine("El legajo mas grande es {0}", ((Alumno)maximo).getLegajo());
+        //     Random num = new Random();
+        //     System.Console.WriteLine("La estrategia seleccionada es {0}", ((Alumno)maximo).obtenerEstrategia());
+        //     if (((Alumno)maximo).obtenerEstrategia() == typeof(tp1.tp2.compararAlumnoLegajo))
+        //     {
+        //         System.Console.WriteLine("Ingrese un legajo para verificar si existe en la lista");
+        //         int legajo = int.Parse(Console.ReadLine());
+        //         Numero numeroLegajo = new Numero(legajo);
+        //         Numero promedio = new Numero(num.Next(0, 9));
+        //         IComparable persona1 = new Alumno("null", 0, numeroLegajo, promedio);
+        //         bool existe = personas.contiene(persona1);
+        //         if (existe)
+        //         {
+        //             System.Console.WriteLine("El legajo está en la lista");
+        //         }
+        //         else
+        //         {
+        //             System.Console.WriteLine("El legajo no está en la lista");
+        //         }
+        //     }
+        //     else
+        //     {
+        //         System.Console.WriteLine("Estrategia no implementada");
+        //     }
+
+
+
+        // }
+
         static public void informarAlumnos(IColeccionable personas)
         {
             IComparable maximo = personas.maximo();
             IComparable minimo = personas.minimo();
-            System.Console.WriteLine("El legajo mas chico es {0}", ((Alumno)minimo).getLegajo());
-            System.Console.WriteLine("El legajo mas grande es {0}", ((Alumno)maximo).getLegajo());
             Random num = new Random();
             System.Console.WriteLine("La estrategia seleccionada es {0}", ((Alumno)maximo).obtenerEstrategia());
-            if (((Alumno)maximo).obtenerEstrategia() == typeof(tp1.tp2.compararAlumnoLegajo))
+            if (((Alumno)maximo).obtenerEstrategia() == typeof(tp1.tp2.compararAlumnoLegajo) && ((Alumno)minimo).obtenerEstrategia() == typeof(tp1.tp2.compararAlumnoLegajo))
             {
-                System.Console.WriteLine("Ingrese un legajo para verificar si existe en la lista");
-                int legajo = int.Parse(Console.ReadLine());
-                Numero numeroLegajo = new Numero(legajo);
-                Numero promedio = new Numero(num.Next(0, 9));
-                IComparable persona1 = new Alumno("null", 0, numeroLegajo, promedio);
-                bool existe = personas.contiene(persona1);
-                if (existe)
-                {
-                    System.Console.WriteLine("El legajo está en la lista");
-                }
-                else
-                {
-                    System.Console.WriteLine("El legajo no está en la lista");
-                }
+                System.Console.WriteLine("El legajo mas chico es {0}", ((Alumno)minimo).getLegajo());
+                System.Console.WriteLine("El legajo mas grande es {0}", ((Alumno)maximo).getLegajo());
             }
-            else
+            else if (((Alumno)maximo).obtenerEstrategia() == typeof(tp1.tp2.compararAlumnoDNI) && ((Alumno)minimo).obtenerEstrategia() == typeof(tp1.tp2.compararAlumnoDNI))
             {
-                System.Console.WriteLine("Estrategia no implementada");
+                System.Console.WriteLine("El DNI mas chico es {0}", ((Alumno)minimo).getDNI());
+                System.Console.WriteLine("El DNI mas grande es {0}", ((Alumno)maximo).getDNI());
             }
-
+            else if (((Alumno)maximo).obtenerEstrategia() == typeof(tp1.tp2.compararAlumnoNombre) && ((Alumno)minimo).obtenerEstrategia() == typeof(tp1.tp2.compararAlumnoNombre))
+            {
+                System.Console.WriteLine("El nombre mas chico es {0}", ((Alumno)minimo).getNombre());
+                System.Console.WriteLine("El nombre mas grande es {0}", ((Alumno)maximo).getNombre());
+            }
+            else if (((Alumno)maximo).obtenerEstrategia() == typeof(tp1.tp2.compararAlumnoPromedio) && ((Alumno)minimo).obtenerEstrategia() == typeof(tp1.tp2.compararAlumnoPromedio))
+            {
+                System.Console.WriteLine("El promedio mas chico es {0}", ((Alumno)maximo).getPromedio());
+                System.Console.WriteLine("El promedio mas grande es {0}", ((Alumno)minimo).getPromedio());
+            }
 
 
         }
@@ -175,23 +206,83 @@ namespace tp1 // Note: actual namespace depends on the project name.
             }
         }
 
+        //Ejercicio 7 tp2
+
+        public static void imprimirElementos(IColeccionable elementos)
+        {
+
+            tp1.tp2.IteradorComparables iterador = ((tp2.Iterable)elementos).crearIterador();
+
+            while (iterador.fin() == false)
+            {
+                System.Console.WriteLine(iterador.actual().ToString());
+                iterador.siguiente();
+            }
+
+            System.Console.WriteLine("-----------------------------------");
+        }
+
+        //Ejercicio 9 tp2
+        public static void cambiarEstrategia(IColeccionable lista, string estrategia)
+        {
+            tp2.IteradorComparables iterador = ((tp2.Iterable)lista).crearIterador(); //tener en cuenta los casteos sino tira error
+            while (iterador.fin() == false)
+            {
+                ((Alumno)iterador.actual()).setearEstrategia(estrategia);
+                iterador.siguiente();
+            }
+        }
+
         //Ejercicio 7 , 9, 13
+        // static public void main()
+        // {
+        //     Pila<IComparable> pila = new Pila<IComparable>();
+        //     Cola<IComparable> cola = new Cola<IComparable>();
+        //     ColeccionMultiple multiple = new ColeccionMultiple(pila, cola);
+        //     // llenar(cola);
+        //     // llenar(pila);
+        //     // llenarPersonas(pila);
+        //     // llenarPersonas(cola);
+        //     llenarAlumnos(pila);
+        //     llenarAlumnos(cola);
+        //     // informar(cola);
+        //     // informar(pila);
+        //     //informar(multiple);
+        //     // informarPersonas(multiple);
+        //     informarAlumnos(multiple);
+        // }
+
+        //Ejercicio 8 tp2
+
         static public void main()
         {
             Pila<IComparable> pila = new Pila<IComparable>();
             Cola<IComparable> cola = new Cola<IComparable>();
-            ColeccionMultiple multiple = new ColeccionMultiple(pila, cola);
-            // llenar(cola);
-            // llenar(pila);
-            // llenarPersonas(pila);
-            // llenarPersonas(cola);
+            tp1.tp2.Conjunto conjunto = new tp2.Conjunto();
+            tp2.Diccionario diccionario = new tp2.Diccionario();
             llenarAlumnos(pila);
             llenarAlumnos(cola);
-            // informar(cola);
-            // informar(pila);
-            //informar(multiple);
-            // informarPersonas(multiple);
-            informarAlumnos(multiple);
+            llenarAlumnos(conjunto);
+            llenarAlumnos(diccionario);
+            imprimirElementos(pila);
+            imprimirElementos(cola);
+            imprimirElementos(conjunto);
+            imprimirElementos(diccionario);
+        }
+
+        //Ejercicio 10 tp2
+        static public void main2()
+        {
+            Cola<IComparable> cola = new Cola<IComparable>();
+            llenarAlumnos(cola);
+            cambiarEstrategia(cola, "Nombre");
+            informarAlumnos(cola);
+            cambiarEstrategia(cola, "Legajo");
+            informarAlumnos(cola);
+            cambiarEstrategia(cola, "Promedio");
+            informarAlumnos(cola);
+            cambiarEstrategia(cola, "DNI");
+            informarAlumnos(cola);
         }
     }
 }

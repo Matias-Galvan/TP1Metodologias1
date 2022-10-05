@@ -1,6 +1,6 @@
 namespace tp1.tp2
 {
-    public class Conjunto : IColeccionable
+    public class Conjunto : IColeccionable, Iterable
     {
         private List<IComparable> listaConjunto;
 
@@ -72,8 +72,19 @@ namespace tp1.tp2
 
             for (int i = 0; i < listaConjunto.Count; i++)
             {
-                
+                if (listaConjunto[i].sosIgual(comparable))
+                {
+                    aux =  true;
+                }
             }
+            return aux;
+        }
+
+        //Metodo iterable
+
+        public IteradorComparables crearIterador(){
+            IteradorComparables iterador = new iteradorPilaConjuntoCola(listaConjunto);
+            return iterador;
         }
     }
 }

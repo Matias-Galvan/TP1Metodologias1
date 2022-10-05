@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 namespace tp1
 {
-    public class Pila<T> : IColeccionable
+    public class Pila<T> : IColeccionable, tp1.tp2.Iterable
     {
         private IColeccionable coleccionable;
 
@@ -73,6 +73,13 @@ namespace tp1
                 }
             }
             return aux;
+        }
+
+        public tp1.tp2.IteradorComparables crearIterador (){
+
+            tp2.IteradorComparables iterador = new tp1.tp2.iteradorPilaConjuntoCola(comparables);
+            return iterador;
+
         }
     }
 }
