@@ -159,8 +159,8 @@ namespace tp1 // Note: actual namespace depends on the project name.
             }
             else if (((Alumno)maximo).obtenerEstrategia() == typeof(tp1.tp2.compararAlumnoPromedio) && ((Alumno)minimo).obtenerEstrategia() == typeof(tp1.tp2.compararAlumnoPromedio))
             {
-                System.Console.WriteLine("El promedio mas chico es {0}", ((Alumno)maximo).getPromedio());
-                System.Console.WriteLine("El promedio mas grande es {0}", ((Alumno)minimo).getPromedio());
+                System.Console.WriteLine("El promedio mas chico es {0}", ((Alumno)minimo).getPromedio());
+                System.Console.WriteLine("El promedio mas grande es {0}", ((Alumno)maximo).getPromedio());
             }
 
 
@@ -195,7 +195,7 @@ namespace tp1 // Note: actual namespace depends on the project name.
                 "Joao Ribeiro Barbosa", "Tomás Cunha Araujo",
                 "Tânia Ribeiro Alves", "Isabela Pereira Carvalho",
                 "Aline Goncalves Melo", "Xiuxiu Ch'eng", "Kuan-Yin Kê"};
-                string nombreCompleto = nombres[(numeroAleatorio.Next(2))];
+                string nombreCompleto = nombres[(numeroAleatorio.Next(10))];
                 Numero legajo = new Numero(numeroAleatorio.Next(0, 9999));
                 Numero promedio = new Numero(numeroAleatorio.Next(1, 10));
 
