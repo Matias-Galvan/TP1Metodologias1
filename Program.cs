@@ -20,7 +20,12 @@ namespace tp1 // Note: actual namespace depends on the project name.
             // llenar(pila);
             // informar(pila);
             //main();
-            main2();
+            //main2();
+            //main3();
+            //main4();
+            //main5();
+            //main6();
+            main7();
 
 
         }
@@ -233,6 +238,37 @@ namespace tp1 // Note: actual namespace depends on the project name.
             }
         }
 
+        public static void llenarGeneral(IColeccionable lista_entrada, string tipoCreacion)
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                lista_entrada.agregar(tp3.FabricaDeComparables.crear_Comparable(tipoCreacion));
+            }
+        }
+
+        public static void informarGeneral(IColeccionable lista_entrada, string tipoAInformar)
+        {
+            IComparable comparable = tp3.FabricaDeComparables.crear_Comparable(tipoAInformar);
+
+            System.Console.WriteLine("La cantidad de {0} del coleccionable es {1}", tipoAInformar, lista_entrada.cuantos());
+            System.Console.WriteLine("El {0} más grande es {1}", tipoAInformar, lista_entrada.maximo());
+            System.Console.WriteLine("El {0} más chico es {1}", tipoAInformar, lista_entrada.minimo());
+
+            //System.Console.WriteLine("Ingrese un valor para ver si está en la lista: ");
+            if (lista_entrada.contiene(comparable))
+            {
+                System.Console.WriteLine("El {0} leído está en la colección", tipoAInformar);
+                Console.ReadKey();
+            }
+            else
+            {
+                System.Console.WriteLine("El {0} leído no está en la colección", tipoAInformar);
+                Console.ReadKey();
+
+            }
+
+        }
+
         //Ejercicio 7 , 9, 13
         // static public void main()
         // {
@@ -283,6 +319,82 @@ namespace tp1 // Note: actual namespace depends on the project name.
             informarAlumnos(cola);
             cambiarEstrategia(cola, "DNI");
             informarAlumnos(cola);
+        }
+
+        //TP 3 ej 2
+        static public void main3()
+        {
+            int cantidad = 10;
+            int pruebaNumero = tp3.generadorDatosAleatorio.numeroAleatorio(cantidad);
+            string pruebaStrings = tp3.generadorDatosAleatorio.stringAleatorio(cantidad);
+            System.Console.WriteLine("El numero es {0} y el string es {1}", pruebaNumero, pruebaStrings);
+            Console.ReadKey();
+
+        }
+        //TP 3 ej 3, 4, 5
+        static public void main4()
+        {
+            tp3.FabricaDeComparables fabricaComparables = new tp3.FabricaDeNumeros();
+            IComparable alumno = fabricaComparables.crearAleatorio();
+            System.Console.WriteLine(((Numero)alumno).getValor());
+            Console.ReadKey();
+        }
+
+        //TP 3 ej 6
+        static public void main5()
+        {
+            Cola<IComparable> cola = new tp1.Cola<IComparable>();
+            tp2.Diccionario diccionario = new tp2.Diccionario();
+            //cambiarEstrategia(diccionario, "DNI");
+
+
+            llenarGeneral(diccionario, "AlumnoRandom");
+            informarGeneral(diccionario, "AlumnoSeleccionable");
+        }
+
+        //TP 3 ej 8 y 9
+        static public void main6()
+        {
+            Cola<IComparable> cola = new tp1.Cola<IComparable>();
+            tp2.Diccionario diccionario = new tp2.Diccionario();
+            llenarGeneral(diccionario, "VendedorRandom");
+            informarGeneral(diccionario, "VendedorSeleccionable");
+        }
+
+        static public void main7()
+        {
+            tp2.Diccionario diccionario = new tp2.Diccionario();
+            llenarGeneral(diccionario, "VendedorRandom");
+            tp3.Gerente gerente = new tp3.Gerente();
+
+            void agregarGerenteColeccion(IColeccionable vendedores, tp3.Gerente gerente)
+            {
+                tp2.IteradorComparables iterador = ((tp2.Iterable)vendedores).crearIterador();
+
+                while (iterador.fin() == false)
+                {
+                    ((tp3.Vendedor)iterador.actual()).agregarObservador(gerente);
+                    iterador.siguiente();
+                }
+            }
+
+            void JornadaDeVentas(IColeccionable vendedores)
+            {
+                tp2.IteradorComparables iterador = ((tp2.Iterable)vendedores).crearIterador();
+
+                while (iterador.fin() == false)
+                {
+                    int monto = tp3.generadorDatosAleatorio.numeroAleatorio(7000);
+                    ((tp3.Vendedor)iterador.actual()).ventaVendedor(monto);
+                    ((tp3.Vendedor)iterador.actual()).notificar();
+                    iterador.siguiente();
+                }
+            }
+
+            agregarGerenteColeccion(diccionario, gerente);
+            JornadaDeVentas(diccionario);
+            gerente.cerrar();
+            Console.ReadKey();
         }
     }
 }

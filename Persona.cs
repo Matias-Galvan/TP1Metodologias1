@@ -16,7 +16,7 @@ namespace tp1
             return nombre;
         }
 
-        public int getDNI()
+        public double getDNI()
         {
             return dni.getValor();
         }

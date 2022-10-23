@@ -1,6 +1,6 @@
 namespace tp1.tp2
 {
-    public class compararAlumnoDNI: IStrategy
+    public class compararAlumnoDNI : IStrategy
     {
         public bool sosIgual(IComparable actual, IComparable comparable)
         {

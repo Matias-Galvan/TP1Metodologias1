@@ -11,7 +11,7 @@ namespace tp1
         {
             this.legajo = new Numero(legajo.getValor());
             this.promedio = new Numero(promedio.getValor());
-            //estrategia = new tp1.tp2.compararAlumnoLegajo(); //Para acceder a la subcarpeta se coloca el namespace correspondiente
+            estrategia = new tp1.tp2.compararAlumnoDNI(); //Para acceder a la subcarpeta se coloca el namespace correspondiente
         }
 
         public Type obtenerEstrategia()

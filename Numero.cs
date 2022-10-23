@@ -3,19 +3,23 @@ namespace tp1
     public class Numero : IComparable
     {
         //Declaraciones de variables
-        int valor;
+        double valor;
         private IComparable comparable;
         //Constructores
-        public Numero(int valor)
+        public Numero(double valor)
         {
             this.valor = valor;
         }
 
         //Métodos
 
-        public int getValor()
+        public double getValor()
         {
             return valor;
+        }
+
+        public void setValor(double numero){
+            valor = numero;
         }
 
         public bool esMayor(IComparable comparable)
