@@ -22,6 +22,7 @@ namespace tp1.tp3
                     if (mejores[i] == vendedor)
                     {
                         encontrarVendedor = true;
+                        vendedor.aumentarBonus();
                     }
                 }
                 if (encontrarVendedor == false)
@@ -37,7 +38,7 @@ namespace tp1.tp3
             for (int i = 0; i < mejores.Count; i++)
             {
                 System.Console.WriteLine("Los mejores vendedores son: ");
-                System.Console.WriteLine("Nombre: {0} ", ((Vendedor)mejores[i]).getNombre());
+                System.Console.WriteLine("Nombre: {0} con un bonus acumulado de {1}", ((Vendedor)mejores[i]).getNombre(), ((Vendedor)mejores[i]).get_bonus());
             }
         }
 

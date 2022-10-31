@@ -190,26 +190,26 @@ namespace tp1 // Note: actual namespace depends on the project name.
         //     }
         // }
 
-        static void llenarAlumnos(IColeccionable coleccionAlumnos)
-        {
-            for (int i = 0; i < 20; i++)
-            {
-                Random numeroAleatorio = new Random();
-                string[] nombres = {"Warren F. Zayas",
-                "Lonnie L. Jones", "Sean H. Chavez" ,"Júlia Costa Barbosa",
-                "Joao Ribeiro Barbosa", "Tomás Cunha Araujo",
-                "Tânia Ribeiro Alves", "Isabela Pereira Carvalho",
-                "Aline Goncalves Melo", "Xiuxiu Ch'eng", "Kuan-Yin Kê"};
-                string nombreCompleto = nombres[(numeroAleatorio.Next(10))];
-                Numero legajo = new Numero(numeroAleatorio.Next(0, 9999));
-                Numero promedio = new Numero(numeroAleatorio.Next(1, 10));
+        // static void llenarAlumnos(IColeccionable coleccionAlumnos)
+        // {
+        //     for (int i = 0; i < 20; i++)
+        //     {
+        //         Random numeroAleatorio = new Random();
+        //         string[] nombres = {"Warren F. Zayas",
+        //         "Lonnie L. Jones", "Sean H. Chavez" ,"Júlia Costa Barbosa",
+        //         "Joao Ribeiro Barbosa", "Tomás Cunha Araujo",
+        //         "Tânia Ribeiro Alves", "Isabela Pereira Carvalho",
+        //         "Aline Goncalves Melo", "Xiuxiu Ch'eng", "Kuan-Yin Kê"};
+        //         string nombreCompleto = nombres[(numeroAleatorio.Next(10))];
+        //         Numero legajo = new Numero(numeroAleatorio.Next(0, 9999));
+        //         Numero promedio = new Numero(numeroAleatorio.Next(1, 10));
 
-                IComparable comparable = new Alumno(nombreCompleto, numeroAleatorio.Next(30000000, 50000000), legajo, promedio);
-                coleccionAlumnos.agregar(comparable);
+        //         IComparable comparable = new Alumno(nombreCompleto, numeroAleatorio.Next(30000000, 50000000), legajo, promedio);
+        //         coleccionAlumnos.agregar(comparable);
 
 
-            }
-        }
+        //     }
+        // }
 
         //Ejercicio 7 tp2
 
@@ -245,6 +245,17 @@ namespace tp1 // Note: actual namespace depends on the project name.
                 lista_entrada.agregar(tp3.FabricaDeComparables.crear_Comparable(tipoCreacion));
             }
         }
+
+        //TP4 -> metodos para ejercicio 4
+
+        public static void llenarHasta10Alumnos(IColeccionable lista_entrada, string tipoCreacion)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                lista_entrada.agregar(tp3.FabricaDeComparables.crear_Comparable(tipoCreacion));
+            }
+        }
+
 
         public static void informarGeneral(IColeccionable lista_entrada, string tipoAInformar)
         {
@@ -290,36 +301,36 @@ namespace tp1 // Note: actual namespace depends on the project name.
 
         //Ejercicio 8 tp2
 
-        static public void main()
-        {
-            Pila<IComparable> pila = new Pila<IComparable>();
-            Cola<IComparable> cola = new Cola<IComparable>();
-            tp1.tp2.Conjunto conjunto = new tp2.Conjunto();
-            tp2.Diccionario diccionario = new tp2.Diccionario();
-            llenarAlumnos(pila);
-            llenarAlumnos(cola);
-            llenarAlumnos(conjunto);
-            llenarAlumnos(diccionario);
-            imprimirElementos(pila);
-            imprimirElementos(cola);
-            imprimirElementos(conjunto);
-            imprimirElementos(diccionario);
-        }
+        // static public void main()
+        // {
+        //     Pila<IComparable> pila = new Pila<IComparable>();
+        //     Cola<IComparable> cola = new Cola<IComparable>();
+        //     tp1.tp2.Conjunto conjunto = new tp2.Conjunto();
+        //     tp2.Diccionario diccionario = new tp2.Diccionario();
+        //     llenarAlumnos(pila);
+        //     llenarAlumnos(cola);
+        //     llenarAlumnos(conjunto);
+        //     llenarAlumnos(diccionario);
+        //     imprimirElementos(pila);
+        //     imprimirElementos(cola);
+        //     imprimirElementos(conjunto);
+        //     imprimirElementos(diccionario);
+        // }
 
         //Ejercicio 10 tp2
-        static public void main2()
-        {
-            Cola<IComparable> cola = new Cola<IComparable>();
-            llenarAlumnos(cola);
-            cambiarEstrategia(cola, "Nombre");
-            informarAlumnos(cola);
-            cambiarEstrategia(cola, "Legajo");
-            informarAlumnos(cola);
-            cambiarEstrategia(cola, "Promedio");
-            informarAlumnos(cola);
-            cambiarEstrategia(cola, "DNI");
-            informarAlumnos(cola);
-        }
+        // static public void main2()
+        // {
+        //     Cola<IComparable> cola = new Cola<IComparable>();
+        //     llenarAlumnos(cola);
+        //     cambiarEstrategia(cola, "Nombre");
+        //     informarAlumnos(cola);
+        //     cambiarEstrategia(cola, "Legajo");
+        //     informarAlumnos(cola);
+        //     cambiarEstrategia(cola, "Promedio");
+        //     informarAlumnos(cola);
+        //     cambiarEstrategia(cola, "DNI");
+        //     informarAlumnos(cola);
+        // }
 
         //TP 3 ej 2
         static public void main3()
@@ -380,21 +391,33 @@ namespace tp1 // Note: actual namespace depends on the project name.
 
             void JornadaDeVentas(IColeccionable vendedores)
             {
-                tp2.IteradorComparables iterador = ((tp2.Iterable)vendedores).crearIterador();
-
-                while (iterador.fin() == false)
+                for (int i = 0; i < 20; i++)
                 {
-                    int monto = tp3.generadorDatosAleatorio.numeroAleatorio(7000);
-                    ((tp3.Vendedor)iterador.actual()).ventaVendedor(monto);
-                    ((tp3.Vendedor)iterador.actual()).notificar();
-                    iterador.siguiente();
+                    tp2.IteradorComparables iterador = ((tp2.Iterable)vendedores).crearIterador();
+
+                    while (iterador.fin() == false)
+                    {
+                        int monto = tp3.generadorDatosAleatorio.numeroAleatorio(7000);
+                        ((tp3.Vendedor)iterador.actual()).ventaVendedor(monto);
+                        ((tp3.Vendedor)iterador.actual()).notificar();
+                        iterador.siguiente();
+                    }
                 }
+
             }
 
             agregarGerenteColeccion(diccionario, gerente);
             JornadaDeVentas(diccionario);
             gerente.cerrar();
             Console.ReadKey();
+        }
+
+        static public void mainAdaptador()
+        {
+            tp4.Teacher profesor = new tp4.Teacher();
+            tp2.Diccionario diccionario = new tp2.Diccionario();
+
+            llenarHasta10Alumnos(diccionario, "AlumnoRandomEstudioso");
         }
     }
 }

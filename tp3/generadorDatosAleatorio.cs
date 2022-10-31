@@ -9,6 +9,11 @@ namespace tp1.tp3
         Int32 num_aleatorio = random.Next(0, max);
         return num_aleatorio;
       }
+      static public int numeroAleatorio(int min, int max){
+        Random random = new Random();
+        Int32 numeroRandom = random.Next(min, max);
+        return numeroRandom;
+      }
 
       static public string stringAleatorio(int cantidad){
         Random num_aleatorio = new Random();

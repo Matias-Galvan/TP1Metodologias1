@@ -21,10 +21,14 @@ namespace tp1.tp3
 
                 case "NumeroRandom":
                     fabrica_comparables = new FabricaDeNumeros();
-                    return fabrica_comparables.crearPorTeclado();
+                    return fabrica_comparables.crearAleatorio();
 
                 case "AlumnoRandom":
                     fabrica_comparables = new FabricaDeAlumnos();
+                    return fabrica_comparables.crearAleatorio();
+                
+                case "AlumnoRandomEstudioso":
+                    fabrica_comparables = new tp4.FabricaAlumnosEstudiosos();
                     return fabrica_comparables.crearAleatorio();
 
                 case "VendedorSeleccionable":
