@@ -4,7 +4,7 @@ namespace tp1.tp2
     {
         public bool sosIgual(IComparable actual, IComparable comparable)
         {
-            if (((Alumno)actual).getNombre() == (((Alumno)comparable).getNombre()))
+            if (((tp4.IDecoradorAlumnos)actual).getNombre() == (((tp4.IDecoradorAlumnos)comparable).getNombre()))
             {
                 return true;
             }
@@ -16,7 +16,7 @@ namespace tp1.tp2
         }
         public bool esMayor(IComparable actual, IComparable comparable)
         {
-            if (((Alumno)actual).getNombre().Length > (((Alumno)comparable).getNombre().Length))
+            if (((tp4.IDecoradorAlumnos)actual).getNombre().Length > (((tp4.IDecoradorAlumnos)comparable).getNombre().Length))
             {
                 return true;
             }
@@ -27,7 +27,7 @@ namespace tp1.tp2
         }
         public bool esMenor(IComparable actual, IComparable comparable)
         {
-            if (((Alumno)actual).getNombre().Length < (((Alumno)comparable).getNombre().Length))
+            if (((tp4.IDecoradorAlumnos)actual).getNombre().Length < (((tp4.IDecoradorAlumnos)comparable).getNombre().Length))
             {
                 return true;
             }

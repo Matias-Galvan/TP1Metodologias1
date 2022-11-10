@@ -25,7 +25,8 @@ namespace tp1 // Note: actual namespace depends on the project name.
             //main4();
             //main5();
             //main6();
-            main7();
+            //main7();
+            mainAdaptador();
 
 
         }
@@ -246,15 +247,7 @@ namespace tp1 // Note: actual namespace depends on the project name.
             }
         }
 
-        //TP4 -> metodos para ejercicio 4
 
-        public static void llenarHasta10Alumnos(IColeccionable lista_entrada, string tipoCreacion)
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                lista_entrada.agregar(tp3.FabricaDeComparables.crear_Comparable(tipoCreacion));
-            }
-        }
 
 
         public static void informarGeneral(IColeccionable lista_entrada, string tipoAInformar)
@@ -412,12 +405,52 @@ namespace tp1 // Note: actual namespace depends on the project name.
             Console.ReadKey();
         }
 
+        //TP4 -> metodos para ejercicio 4
+
+        public static void llenarHasta10Alumnos(IColeccionable lista_entrada, string tipoCreacion)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                lista_entrada.agregar(tp3.FabricaDeComparables.crear_Comparable(tipoCreacion));
+
+            }
+        }
+
         static public void mainAdaptador()
         {
             tp4.Teacher profesor = new tp4.Teacher();
             tp2.Diccionario diccionario = new tp2.Diccionario();
+            llenarGeneral(diccionario, "AlumnoRandom");
+            // llenarHasta10Alumnos(diccionario, "AlumnoRandomEstudioso");
+            // llenarHasta10Alumnos(diccionario, "AlumnoRandom");
 
-            llenarHasta10Alumnos(diccionario, "AlumnoRandomEstudioso");
+            for (int i = 0; i < 10; i++)
+            {
+                tp3.FabricaDeComparables fabricaAlumnos = new tp3.FabricaDeAlumnos();
+                tp4.IDecoradorAlumnos alumnoDecorado = new tp4.DecoradorLegajo((Alumno)fabricaAlumnos.crearAleatorio());
+                alumnoDecorado = new tp4.DecoradorEnLetras(alumnoDecorado);
+                alumnoDecorado = new tp4.DecoradorPromocion(alumnoDecorado);
+                alumnoDecorado = new tp4.DecoradorAsteriscos(alumnoDecorado);
+
+                tp4.AdaptadorAlumnos alumnoAdaptado = new tp4.AdaptadorAlumnos(alumnoDecorado);
+                profesor.goToClass(alumnoAdaptado);
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                tp3.FabricaDeComparables fabricaAlumnos1 = new tp4.FabricaAlumnosEstudiosos();
+                tp4.IDecoradorAlumnos alumnoDecorado = new tp4.DecoradorLegajo((Alumno)fabricaAlumnos1.crearAleatorio());
+
+                alumnoDecorado = new tp4.DecoradorEnLetras(alumnoDecorado);
+                alumnoDecorado = new tp4.DecoradorPromocion(alumnoDecorado);
+                alumnoDecorado = new tp4.DecoradorAsteriscos(alumnoDecorado);
+
+                tp4.AdaptadorAlumnos alumnoAdaptado = new tp4.AdaptadorAlumnos(alumnoDecorado);
+                profesor.goToClass(alumnoAdaptado);
+
+            }
+
+            profesor.teachingAClass();
         }
     }
 }

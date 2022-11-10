@@ -4,7 +4,7 @@ namespace tp1.tp2
     {
         public bool sosIgual(IComparable actual, IComparable comparable)
         {
-            if (((Alumno)actual).getLegajo().getValor() == (((Alumno)comparable).getLegajo().getValor()))
+            if (((tp4.IDecoradorAlumnos)actual).getLegajo().getValor() == (((tp4.IDecoradorAlumnos)comparable).getLegajo().getValor()))
             {
                 return true;
             }
@@ -16,7 +16,7 @@ namespace tp1.tp2
         }
         public bool esMayor(IComparable actual, IComparable comparable)
         {
-            if ((((Alumno)actual).getLegajo()).getValor() > ((((Alumno)comparable).getLegajo())).getValor())
+            if ((((tp4.IDecoradorAlumnos)actual).getLegajo()).getValor() > ((((tp4.IDecoradorAlumnos)comparable).getLegajo())).getValor())
             {
                 return true;
             }
@@ -27,7 +27,7 @@ namespace tp1.tp2
         }
         public bool esMenor(IComparable actual, IComparable comparable)
         {
-            if ((((Alumno)actual).getLegajo()).getValor() < ((((Alumno)comparable).getLegajo())).getValor())
+            if ((((tp4.IDecoradorAlumnos)actual).getLegajo()).getValor() < ((((tp4.IDecoradorAlumnos)comparable).getLegajo())).getValor())
             {
                 return true;
             }
