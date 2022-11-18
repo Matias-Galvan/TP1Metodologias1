@@ -420,7 +420,7 @@ namespace tp1 // Note: actual namespace depends on the project name.
         {
             tp4.Teacher profesor = new tp4.Teacher();
             tp2.Diccionario diccionario = new tp2.Diccionario();
-            llenarGeneral(diccionario, "AlumnoRandom");
+            //llenarGeneral(diccionario, "AlumnoRandom");
             // llenarHasta10Alumnos(diccionario, "AlumnoRandomEstudioso");
             // llenarHasta10Alumnos(diccionario, "AlumnoRandom");
 

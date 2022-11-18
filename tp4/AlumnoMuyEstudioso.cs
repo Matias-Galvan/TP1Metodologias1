@@ -9,7 +9,7 @@ namespace tp1.tp4
 
         public override double responderPregunta(double pregunta)
         {
-            return 3;
+            return pregunta % 3;
         }
     }
 }
