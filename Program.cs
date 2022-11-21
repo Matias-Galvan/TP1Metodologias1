@@ -420,14 +420,14 @@ namespace tp1 // Note: actual namespace depends on the project name.
         {
             tp4.Teacher profesor = new tp4.Teacher();
             tp2.Diccionario diccionario = new tp2.Diccionario();
-            //llenarGeneral(diccionario, "AlumnoRandom");
+            llenarGeneral(diccionario, "AlumnoRandomProxy");
             // llenarHasta10Alumnos(diccionario, "AlumnoRandomEstudioso");
             // llenarHasta10Alumnos(diccionario, "AlumnoRandom");
 
             for (int i = 0; i < 10; i++)
             {
-                tp3.FabricaDeComparables fabricaAlumnos = new tp3.FabricaDeAlumnos();
-                tp4.IDecoradorAlumnos alumnoDecorado = new tp4.DecoradorLegajo((Alumno)fabricaAlumnos.crearAleatorio());
+                tp3.FabricaDeComparables fabricaAlumnos = new tp5.FabricaAlumnosProxy(); ;
+                tp4.IDecoradorAlumnos alumnoDecorado = new tp4.DecoradorLegajo((tp5.AlumnoProxy)fabricaAlumnos.crearAleatorio());
                 alumnoDecorado = new tp4.DecoradorEnLetras(alumnoDecorado);
                 alumnoDecorado = new tp4.DecoradorPromocion(alumnoDecorado);
                 alumnoDecorado = new tp4.DecoradorAsteriscos(alumnoDecorado);

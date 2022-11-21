@@ -26,7 +26,7 @@ namespace tp1.tp3
                 case "AlumnoRandom":
                     fabrica_comparables = new FabricaDeAlumnos();
                     return fabrica_comparables.crearAleatorio();
-                
+
                 case "AlumnoRandomEstudioso":
                     fabrica_comparables = new tp4.FabricaAlumnosEstudiosos();
                     return fabrica_comparables.crearAleatorio();
@@ -37,6 +37,10 @@ namespace tp1.tp3
 
                 case "VendedorRandom":
                     fabrica_comparables = new FabricaDeVendedores();
+                    return fabrica_comparables.crearAleatorio();
+
+                case "AlumnoRandomProxy":
+                    fabrica_comparables = new tp5.FabricaAlumnosProxy();
                     return fabrica_comparables.crearAleatorio();
 
                 default:

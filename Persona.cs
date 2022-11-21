@@ -1,11 +1,11 @@
 namespace tp1
 {
-    public class Persona: IComparable //Aca se implementaba IComparable, esta implementado en Alumno para entregar el ej 18
+    public class Persona : IComparable //Aca se implementaba IComparable, esta implementado en Alumno para entregar el ej 18
     {
         private string nombre;
         private Numero dni;
 
-        public Persona(string n, int d)
+        public Persona(string n, double d)
         {
             this.nombre = n;
             this.dni = new Numero(d);
@@ -23,7 +23,7 @@ namespace tp1
 
         public virtual bool esMayor(IComparable persona)
         {
-            if (dni.getValor() > ((Persona)persona).getDNI())
+            if (dni.getValor() > ((tp4.IDecoradorAlumnos)persona).getDNI())
             {
                 return true;
             }
@@ -34,7 +34,7 @@ namespace tp1
         }
         public virtual bool esMenor(IComparable persona)
         {
-            if (dni.getValor() < ((Persona)persona).getDNI())
+            if (dni.getValor() < ((tp4.IDecoradorAlumnos)persona).getDNI())
             {
                 return true;
             }
@@ -45,7 +45,7 @@ namespace tp1
         }
         public virtual bool sosIgual(IComparable persona)
         {
-            if (dni.getValor() == ((Persona)persona).getDNI())
+            if (dni.getValor() == ((tp4.IDecoradorAlumnos)persona).getDNI())
             {
                 return true;
             }
