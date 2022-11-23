@@ -1,9 +1,12 @@
 namespace tp1.tp2
 {
-    public class Diccionario : IColeccionable, Iterable
+    public class Diccionario : IColeccionable, Iterable, tp5.IOrdenable
     {
         List<ClaveValor> lista_claveValor; //Guardo las claves en una lista
-
+        //TP5
+        tp5.OrdenEnAula1 ordenInicio;
+        tp5.OrdenEnAula2 ordenLlegaAlumno;
+        tp5.OrdenEnAula1 ordenAulaLlena;
         //Constructor
         public Diccionario()
         {
@@ -64,7 +67,18 @@ namespace tp1.tp2
                 if (llave_existe == false)
                 {
                     ClaveValor nueva = new ClaveValor(clave_nueva, entrada);
+
+                    //TP5 Ej 9
+                    if (lista_claveValor.Count == 0)
+                    {
+                        ordenInicio.ejecutar();
+                    }
+                    ordenLlegaAlumno.ejecutar(entrada);
                     lista_claveValor.Add(nueva);
+                    if (lista_claveValor.Count == 40)
+                    {
+                        ordenAulaLlena.ejecutar();
+                    }
                     continuar = false;
                 }
             }
@@ -123,6 +137,21 @@ namespace tp1.tp2
         {
             IteradorComparables iterador = new iteradorDiccionarios(lista_claveValor);
             return iterador;
+        }
+
+        //TP5 Command
+
+        public void setOrdenInicio(tp5.OrdenEnAula1 orden)
+        {
+            ordenInicio = orden;
+        }
+        public void setOrdenLlegaAlumno(tp5.OrdenEnAula2 orden)
+        {
+            ordenLlegaAlumno = orden;
+        }
+        public void setOrdenAulaLlena(tp5.OrdenEnAula1 orden)
+        {
+            ordenAulaLlena = orden;
         }
     }
 }

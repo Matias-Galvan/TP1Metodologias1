@@ -26,7 +26,8 @@ namespace tp1 // Note: actual namespace depends on the project name.
             //main5();
             //main6();
             //main7();
-            mainAdaptador();
+            //mainAdaptador();
+            mainCommand();
 
 
         }
@@ -418,6 +419,7 @@ namespace tp1 // Note: actual namespace depends on the project name.
 
         static public void mainAdaptador()
         {
+            //TP5 ej 2 -> Proxy funcando correcto
             tp4.Teacher profesor = new tp4.Teacher();
             tp2.Diccionario diccionario = new tp2.Diccionario();
             llenarGeneral(diccionario, "AlumnoRandomProxy");
@@ -451,6 +453,23 @@ namespace tp1 // Note: actual namespace depends on the project name.
             }
 
             profesor.teachingAClass();
+        }
+
+        //TP5 Ejercicio 10
+
+        static public void mainCommand()
+        {
+            tp5.OrdenEnAula1 ordenInicio;
+            tp5.OrdenEnAula1 aulaLlena;
+            tp5.OrdenEnAula2 llegaAlumno;
+            tp2.Diccionario diccionario = new tp2.Diccionario();
+            tp5.Aula aula = new tp5.Aula();
+            diccionario.setOrdenInicio(ordenInicio = new tp5.OrdenInicio(aula));
+            diccionario.setOrdenLlegaAlumno(llegaAlumno = new tp5.OrdenLlegaAlumno(aula));
+            diccionario.setOrdenAulaLlena(aulaLlena = new tp5.OrdenAulaLlena(aula));
+
+            llenarGeneral(diccionario, "AlumnoRandom");
+            llenarGeneral(diccionario, "AlumnoRandomEstudioso");
         }
     }
 }
