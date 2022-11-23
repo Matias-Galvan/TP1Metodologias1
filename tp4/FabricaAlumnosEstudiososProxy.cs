@@ -7,7 +7,7 @@ namespace tp1.tp4
         {
             tp1.Numero legajox = new Numero(tp3.generadorDatosAleatorio.numeroAleatorio(9999));
             tp1.Numero promediox = new Numero(tp3.generadorDatosAleatorio.numeroAleatorio(10));
-            tp1.IComparable alumno = new tp5.AlumnoProxy(tp3.generadorDatosAleatorio.stringAleatorio(10), tp3.generadorDatosAleatorio.numeroAleatorio(99999999), legajox, promediox, tp3.generadorDatosAleatorio.numeroAleatorio(1, 10));
+            tp1.IComparable alumno = new tp5.AlumnoProxyEstudioso(tp3.generadorDatosAleatorio.stringAleatorio(10), tp3.generadorDatosAleatorio.numeroAleatorio(99999999), legajox, promediox, tp3.generadorDatosAleatorio.numeroAleatorio(7, 10));
             return alumno;
         }
 
@@ -22,7 +22,7 @@ namespace tp1.tp4
             tp1.Numero legajo = new Numero(tp3.LectorDeDatos.NumeroPorTeclado());
             System.Console.WriteLine("Ingrese promedio");
             tp1.Numero promedio = new Numero(tp3.LectorDeDatos.NumeroPorTeclado());
-            tp1.IComparable alumno = new tp5.AlumnoProxy(nombre, dni, legajo, promedio, tp3.LectorDeDatos.NumeroPorTeclado());
+            tp1.IComparable alumno = new tp5.AlumnoProxyEstudioso(nombre, dni, legajo, promedio, tp3.LectorDeDatos.NumeroPorTeclado());
             return alumno;
         }
     }

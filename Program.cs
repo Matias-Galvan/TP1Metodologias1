@@ -440,8 +440,8 @@ namespace tp1 // Note: actual namespace depends on the project name.
 
             for (int i = 0; i < 10; i++)
             {
-                tp3.FabricaDeComparables fabricaAlumnos1 = new tp4.FabricaAlumnosEstudiosos();
-                tp4.IDecoradorAlumnos alumnoDecorado = new tp4.DecoradorLegajo((Alumno)fabricaAlumnos1.crearAleatorio());
+                tp3.FabricaDeComparables fabricaAlumnos1 = new tp4.FabricaAlumnosEstudiososProxy();
+                tp4.IDecoradorAlumnos alumnoDecorado = new tp4.DecoradorLegajo((tp4.AlumnoMuyEstudioso)fabricaAlumnos1.crearAleatorio());
 
                 alumnoDecorado = new tp4.DecoradorEnLetras(alumnoDecorado);
                 alumnoDecorado = new tp4.DecoradorPromocion(alumnoDecorado);
