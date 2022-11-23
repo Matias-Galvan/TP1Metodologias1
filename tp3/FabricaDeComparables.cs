@@ -42,6 +42,9 @@ namespace tp1.tp3
                 case "AlumnoRandomProxy":
                     fabrica_comparables = new tp5.FabricaAlumnosProxy();
                     return fabrica_comparables.crearAleatorio();
+                case "AlumnoRandomEstudiosoProxy":
+                    fabrica_comparables = new tp4.FabricaAlumnosEstudiososProxy();
+                    return fabrica_comparables.crearAleatorio();
 
                 default:
                     return null;

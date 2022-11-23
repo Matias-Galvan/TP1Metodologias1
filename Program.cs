@@ -468,8 +468,8 @@ namespace tp1 // Note: actual namespace depends on the project name.
             diccionario.setOrdenLlegaAlumno(llegaAlumno = new tp5.OrdenLlegaAlumno(aula));
             diccionario.setOrdenAulaLlena(aulaLlena = new tp5.OrdenAulaLlena(aula));
 
-            llenarGeneral(diccionario, "AlumnoRandom");
-            llenarGeneral(diccionario, "AlumnoRandomEstudioso");
+            llenarGeneral(diccionario, "AlumnoRandomProxy");
+            llenarGeneral(diccionario, "AlumnoRandomEstudiosoProxy");
         }
     }
 }
